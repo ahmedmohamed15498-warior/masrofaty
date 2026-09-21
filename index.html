@@ -40,19 +40,30 @@ button,input,select{font:inherit;color:inherit}
 button{cursor:pointer}
 :focus-visible{outline:3px solid var(--sav);outline-offset:2px}
 
-/* header */
-.top{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}
+/* header + period */
+.top{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
 .top h1{font-size:20px;margin:0;font-weight:700}
-.month{display:flex;align-items:center;gap:6px;background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:3px}
-.month button{width:34px;height:34px;border:0;border-radius:50%;background:transparent;font-size:18px}
+.modes{display:grid;grid-template-columns:repeat(3,1fr);background:var(--soft);border-radius:12px;padding:3px;margin-bottom:10px}
+.modes button{border:0;background:transparent;border-radius:10px;padding:7px;font-weight:600;color:var(--muted)}
+.modes button.on{background:var(--ink);color:var(--surface)}
+.month{display:flex;align-items:center;justify-content:space-between;background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:3px;margin-bottom:12px}
+.month button{width:38px;height:38px;border:0;border-radius:50%;background:transparent;font-size:20px}
 .month button:hover{background:var(--soft)}
-.month span{min-width:104px;text-align:center;font-weight:600;font-family:"Readex Pro",sans-serif;font-size:14px}
+.month span{text-align:center;font-weight:600;font-family:"Readex Pro",sans-serif;font-size:15px}
+.rangebox{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:12px;margin-bottom:12px}
+.rangebox .two{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.chips button{border:1px solid var(--line);background:transparent;border-radius:999px;padding:3px 12px;font-size:13px;color:var(--muted)}
+.chips button:hover{background:var(--soft)}
+[hidden]{display:none!important}
 
 /* hero */
 .hero{background:var(--surface);border:1px solid var(--line);border-radius:24px;padding:20px 18px 16px}
-.hero .line{margin:0 0 4px;font-size:15px;color:var(--muted)}
-.hero .big{font-family:"Readex Pro",sans-serif;font-weight:700;font-size:26px;line-height:1.4;margin:0 0 14px}
-.hero .big b{font-weight:700}
+.hero .line{margin:0 0 2px;font-size:14.5px;color:var(--muted)}
+.hero .big{font-family:"Readex Pro",sans-serif;font-weight:700;font-size:32px;line-height:1.35;margin:0 0 4px}
+.hero .eq{margin:0 0 14px}
+.hero .eq b{color:var(--ink)}
+.hero .eq .c-inc,.hero .eq .c-exp{font-weight:600}
 .c-inc{color:var(--inc)} .c-exp{color:var(--exp)} .c-sav{color:var(--sav)}
 .river{display:flex;gap:2px;height:46px;border-radius:14px;overflow:hidden;background:var(--soft)}
 .river button{border:0;padding:0;min-width:4px;transition:filter .15s,transform .15s}
@@ -63,6 +74,7 @@ button{cursor:pointer}
 .cap b{color:var(--ink)}
 .legend{display:flex;flex-wrap:wrap;gap:6px 14px;margin-top:8px;font-size:13px;color:var(--muted)}
 .legend i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-inline-end:5px;vertical-align:baseline}
+.warn{margin:10px 0 0;font-size:13.5px;color:var(--exp)}
 
 /* stat trio */
 .trio{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:10px}
@@ -73,6 +85,7 @@ button{cursor:pointer}
 /* sections */
 section{margin-top:22px}
 h2{font-size:16px;font-weight:600;margin:0 0 10px}
+h3{font-size:13.5px;font-weight:600;margin:14px 0 4px;color:var(--muted)}
 .panel{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:16px}
 
 /* add form */
@@ -87,6 +100,7 @@ input,select{width:100%;background:var(--bg);border:1px solid var(--line);border
 input.amount{font-family:"Readex Pro",sans-serif;font-size:20px;font-weight:600}
 .go{margin-top:12px;width:100%;border:0;border-radius:12px;padding:12px;font-weight:600;font-size:16px;background:var(--ink);color:var(--surface)}
 .go:active{transform:scale(.99)}
+.go.sm{padding:10px;font-size:15px}
 .ok{min-height:22px;margin:6px 0 0;font-size:13px;color:var(--inc);text-align:center}
 
 /* categories */
@@ -99,15 +113,20 @@ input.amount{font-family:"Readex Pro",sans-serif;font-size:20px;font-weight:600}
 .bar{grid-column:2/4;height:6px;border-radius:3px;background:var(--soft);margin-top:4px;overflow:hidden}
 .bar i{display:block;height:100%;border-radius:3px}
 
-/* daily */
+/* charts */
 .chart{width:100%;height:auto;display:block;overflow:visible}
 .chart rect.b{cursor:pointer;transition:opacity .15s}
-.chart rect.b:hover{opacity:.75}
+.chart rect.b:hover{opacity:.7}
 .chart text{font-size:9px;fill:var(--muted);font-family:"Readex Pro",sans-serif}
+.key{display:flex;gap:14px;font-size:12.5px;color:var(--muted);margin-bottom:6px;flex-wrap:wrap}
+.key i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-inline-end:5px}
+.mrow{display:grid;grid-template-columns:1fr auto;gap:0 10px;padding:9px 0;align-items:center}
+.mrow + .mrow{border-top:1px solid var(--line)}
+.mrow .mn{font-weight:600;font-size:14px}
+.mrow .mb{font-family:"Readex Pro",sans-serif;font-weight:600;font-size:14px;text-align:left}
+.mrow .ms{grid-column:1/-1;font-size:12.5px;color:var(--muted);display:flex;gap:14px;flex-wrap:wrap}
 
 /* goal */
-.goalrow{display:flex;gap:10px;align-items:end}
-.goalrow > div{flex:1}
 .pbar{height:12px;border-radius:6px;background:var(--soft);margin:14px 0 8px;overflow:hidden}
 .pbar i{display:block;height:100%;background:var(--sav);border-radius:6px;transition:width .4s}
 .hint{color:var(--muted);font-size:13.5px;margin:2px 0 0}
@@ -125,34 +144,50 @@ input.amount{font-family:"Readex Pro",sans-serif;font-size:20px;font-weight:600}
 .tx .x{border:0;background:transparent;color:var(--muted);font-size:18px;width:30px;height:30px;border-radius:50%}
 .tx .x:hover{background:var(--soft);color:var(--exp)}
 .empty{text-align:center;color:var(--muted);padding:18px 6px}
-.empty button{margin-top:8px}
 .ghost{border:1px solid var(--line);background:transparent;border-radius:10px;padding:8px 14px;font-size:13.5px}
-.foot{display:flex;justify-content:center;gap:10px;margin-top:24px;flex-wrap:wrap}
-.foot .ghost{color:var(--muted)}
-.note{font-size:12px;color:var(--muted);text-align:center;margin-top:12px}
+.morebtn{display:block;margin:10px auto 0}
 .bk{display:flex;gap:8px;flex-wrap:wrap}
 .bk .go{margin-top:0;width:auto;flex:1 1 60%}
 .bk .ghost{flex:1 1 30%}
-.go.sm{padding:10px;font-size:15px}
+.foot{display:flex;justify-content:center;gap:10px;margin-top:24px;flex-wrap:wrap}
+.foot .ghost{color:var(--muted)}
+.note{font-size:12px;color:var(--muted);text-align:center;margin-top:12px}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
-@media (max-width:380px){.trio{grid-template-columns:1fr 1fr}.hero .big{font-size:22px}}
+@media (max-width:380px){.trio{grid-template-columns:1fr 1fr}.hero .big{font-size:26px}}
 </style>
 </head>
 <body>
 <div class="wrap">
 
-  <div class="top">
-    <h1>دفتر مصروفاتي</h1>
-    <div class="month" role="group" aria-label="اختيار الشهر">
-      <button id="next" aria-label="الشهر اللي بعده">›</button>
-      <span id="mlabel"></span>
-      <button id="prev" aria-label="الشهر اللي قبله">‹</button>
+  <div class="top"><h1>دفتر مصروفاتي</h1></div>
+
+  <div class="modes" id="modes" role="group" aria-label="نوع العرض">
+    <button type="button" data-mode="month" class="on">شهر</button>
+    <button type="button" data-mode="year">سنة</button>
+    <button type="button" data-mode="range">فترة</button>
+  </div>
+
+  <div class="month" id="pill" role="group" aria-label="التنقل بين الفترات">
+    <button id="next" type="button" aria-label="اللي بعده">›</button>
+    <span id="mlabel"></span>
+    <button id="prev" type="button" aria-label="اللي قبله">‹</button>
+  </div>
+
+  <div class="rangebox" id="rangeBox" hidden>
+    <div class="two">
+      <div><label for="rFrom">من</label><input id="rFrom" type="date"></div>
+      <div><label for="rTo">إلى</label><input id="rTo" type="date"></div>
+    </div>
+    <div class="chips" id="chips">
+      <button type="button" data-chip="30d">آخر 30 يوم</button>
+      <button type="button" data-chip="3m">آخر 3 شهور</button>
+      <button type="button" data-chip="6m">آخر 6 شهور</button>
+      <button type="button" data-chip="ytd">من أول السنة</button>
+      <button type="button" data-chip="all">كل الفترة</button>
     </div>
   </div>
 
-  <div class="hero">
-    <div id="hero"></div>
-  </div>
+  <div class="hero"><div id="hero"></div></div>
 
   <div class="trio" id="trio"></div>
 
@@ -193,7 +228,20 @@ input.amount{font-family:"Readex Pro",sans-serif;font-size:20px;font-weight:600}
     <div class="panel" id="cats"></div>
   </section>
 
-  <section>
+  <section id="repSec" hidden>
+    <h2>تقرير الفترة</h2>
+    <div class="panel">
+      <div class="key"><span><i style="background:var(--inc)"></i>دخل</span><span><i style="background:var(--exp)"></i>مصروف</span></div>
+      <div id="mbars"></div>
+      <h3>الرصيد على مدار الفترة</h3>
+      <div id="mline"></div>
+      <p class="cap" id="mcap">اضغط على أي شهر تشوف تفاصيله.</p>
+      <div id="mrows"></div>
+    </div>
+    <div class="trio" id="insights"></div>
+  </section>
+
+  <section id="dailySec">
     <h2>صرفك يوم بيوم</h2>
     <div class="panel">
       <div id="daily"></div>
@@ -202,20 +250,16 @@ input.amount{font-family:"Readex Pro",sans-serif;font-size:20px;font-weight:600}
   </section>
 
   <section>
-    <h2>هدف الادخار</h2>
+    <h2>هدف الرصيد</h2>
     <div class="panel">
-      <div class="goalrow">
-        <div>
-          <label for="goal">عايز تدخر كام الشهر ده؟</label>
-          <input id="goal" type="number" inputmode="decimal" min="0" step="any" placeholder="مثلًا 3000">
-        </div>
-      </div>
+      <label for="goal">عايز توصل لرصيد كام في آخر الفترة؟</label>
+      <input id="goal" type="number" inputmode="decimal" min="0" step="any" placeholder="مثلًا 20000">
       <div id="goalOut"></div>
     </div>
   </section>
 
   <section>
-    <h2>كل الحركات</h2>
+    <h2>حركات الفترة</h2>
     <div class="panel">
       <div class="filters" id="filters">
         <button type="button" data-f="all" class="on">الكل</button>
@@ -223,6 +267,10 @@ input.amount{font-family:"Readex Pro",sans-serif;font-size:20px;font-weight:600}
         <button type="button" data-f="income">دخل</button>
       </div>
       <div id="list"></div>
+      <div style="text-align:center;margin-top:12px">
+        <button class="ghost" id="csv" type="button">تصدير حركات الفترة (Excel / CSV)</button>
+        <p class="ok" id="csvmsg" role="status"></p>
+      </div>
     </div>
   </section>
 
@@ -278,21 +326,76 @@ input.amount{font-family:"Readex Pro",sans-serif;font-size:20px;font-weight:600}
   function save(){ try { localStorage.setItem(KEY, JSON.stringify(state)); } catch (e) {} }
 
   var now = new Date();
-  var view = { y: now.getFullYear(), m: now.getMonth() };
+  var view = { mode: 'month', y: now.getFullYear(), m: now.getMonth(), from: '', to: '' };
   var type = 'expense';
   var filter = 'all';
+  var listAll = false;
+  var lastP = null;
 
   function $(id){ return document.getElementById(id); }
   function pad(n){ return (n < 10 ? '0' : '') + n; }
   function fmt(n){ return Math.round(n).toLocaleString('en-US'); }
-  function money(n){ return fmt(n) + ' ج.م'; }
+  function money(n){
+    var s = fmt(Math.abs(n)) + ' ج.م';
+    return (n < 0 && Math.round(n) !== 0) ? '<bdi dir="ltr">−' + s + '</bdi>' : s;
+  }
   function esc(s){ return String(s).replace(/[&<>"']/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
-  function ym(){ return view.y + '-' + pad(view.m + 1); }
   function todayStr(){ return now.getFullYear() + '-' + pad(now.getMonth() + 1) + '-' + pad(now.getDate()); }
 
-  function monthItems(){
-    var p = ym();
-    return state.items.filter(function(it){ return it.date.indexOf(p) === 0; });
+  /* date helpers (UTC based, no DST surprises) */
+  function parse(s){ var a = s.split('-'); return Date.UTC(+a[0], +a[1] - 1, +a[2]); }
+  function daysBetween(a, b){ return Math.round((parse(b) - parse(a)) / 864e5); }
+  function addDays(s, n){ var d = new Date(parse(s) + n * 864e5); return d.getUTCFullYear() + '-' + pad(d.getUTCMonth() + 1) + '-' + pad(d.getUTCDate()); }
+  function lastDay(y, m0){ return new Date(Date.UTC(y, m0 + 1, 0)).getUTCDate(); }
+  function isDate(s){ return typeof s === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(s); }
+
+  function periodBounds(){
+    if (view.mode === 'month') {
+      return { start: view.y + '-' + pad(view.m + 1) + '-01', end: view.y + '-' + pad(view.m + 1) + '-' + pad(lastDay(view.y, view.m)) };
+    }
+    if (view.mode === 'year') return { start: view.y + '-01-01', end: view.y + '-12-31' };
+    var f = view.from, t = view.to;
+    if (!isDate(f) || !isDate(t)) {
+      var y = now.getFullYear(), m = now.getMonth();
+      return { start: y + '-' + pad(m + 1) + '-01', end: todayStr() };
+    }
+    if (f > t) { var x = f; f = t; t = x; }
+    return { start: f, end: t };
+  }
+
+  /* everything the screen shows is computed here */
+  function calc(){
+    var b = periodBounds(), start = b.start, end = b.end;
+    var items = [], opening = 0, inc = 0, exp = 0, cats = {}, days = {}, biggest = null, mm = {};
+    state.items.forEach(function(it){
+      if (it.date < start) { opening += it.type === 'income' ? it.amount : -it.amount; return; }
+      if (it.date > end) return;
+      items.push(it);
+      var key = it.date.slice(0, 7);
+      var o = mm[key] || (mm[key] = { inc: 0, exp: 0 });
+      if (it.type === 'income') { inc += it.amount; o.inc += it.amount; }
+      else {
+        exp += it.amount; o.exp += it.amount;
+        cats[it.cat] = (cats[it.cat] || 0) + it.amount;
+        days[it.date] = (days[it.date] || 0) + it.amount;
+        if (!biggest || it.amount > biggest.amount) biggest = it;
+      }
+    });
+    var months = [], run = opening;
+    var y = +start.slice(0, 4), m = +start.slice(5, 7) - 1, ey = +end.slice(0, 4), em = +end.slice(5, 7) - 1;
+    while ((y < ey || (y === ey && m <= em)) && months.length < 240) {
+      var key = y + '-' + pad(m + 1);
+      var o = mm[key] || { inc: 0, exp: 0 };
+      run += o.inc - o.exp;
+      months.push({ key: key, y: y, m: m, inc: o.inc, exp: o.exp, net: o.inc - o.exp, close: run });
+      m++; if (m > 11) { m = 0; y++; }
+    }
+    var catList = Object.keys(cats).map(function(k){ return { id: k, amt: cats[k] }; }).sort(function(a, b){ return b.amt - a.amt; });
+    var nDays = daysBetween(start, end) + 1;
+    var td = todayStr();
+    var elapsed = (td >= start && td <= end) ? daysBetween(start, td) + 1 : nDays;
+    return { start: start, end: end, items: items, opening: opening, inc: inc, exp: exp, closing: opening + inc - exp,
+             catList: catList, days: days, biggest: biggest, months: months, nDays: nDays, elapsed: Math.max(1, elapsed) };
   }
 
   function fillCats(){
@@ -300,79 +403,81 @@ input.amount{font-family:"Readex Pro",sans-serif;font-size:20px;font-weight:600}
     $('cat').innerHTML = list.map(function(c){ return '<option value="' + c.id + '">' + c.i + ' ' + c.n + '</option>'; }).join('');
   }
 
-  function render(){
-    $('mlabel').textContent = MONTHS[view.m] + ' ' + view.y;
-    var items = monthItems();
-    var inc = 0, exp = 0, cats = {}, days = {}, biggest = null;
-    items.forEach(function(it){
-      if (it.type === 'income') { inc += it.amount; }
-      else {
-        exp += it.amount;
-        cats[it.cat] = (cats[it.cat] || 0) + it.amount;
-        var d = +it.date.slice(8, 10);
-        days[d] = (days[d] || 0) + it.amount;
-        if (!biggest || it.amount > biggest.amount) biggest = it;
-      }
-    });
-    var sav = inc - exp;
-    var dim = new Date(view.y, view.m + 1, 0).getDate();
-    var isCur = view.y === now.getFullYear() && view.m === now.getMonth();
-    var elapsed = isCur ? now.getDate() : dim;
-    var catList = Object.keys(cats).map(function(k){ return { id: k, amt: cats[k] }; }).sort(function(a, b){ return b.amt - a.amt; });
-
-    renderHero(inc, exp, sav, catList);
-    renderTrio(inc, exp, sav, elapsed, biggest);
-    renderCats(catList, exp);
-    renderDaily(days, dim, isCur);
-    renderGoal(inc, exp, sav, dim, isCur);
-    renderList(items);
+  function periodLabel(){
+    if (view.mode === 'month') return MONTHS[view.m] + ' ' + view.y;
+    if (view.mode === 'year') return 'سنة ' + view.y;
+    return '';
   }
 
-  function renderHero(inc, exp, sav, catList){
-    var h = '';
-    if (!inc && !exp) {
-      h += '<p class="line">الشهر ده لسه فاضي</p><p class="big">سجّل أول دخل أو مصروف وهتشوف فلوسك بتروح فين.</p>';
-      $('hero').innerHTML = h; return;
+  function syncUI(){
+    Array.prototype.forEach.call($('modes').children, function(b){ b.classList.toggle('on', b.getAttribute('data-mode') === view.mode); });
+    var isRange = view.mode === 'range';
+    $('pill').hidden = isRange;
+    $('rangeBox').hidden = !isRange;
+    $('mlabel').textContent = periodLabel();
+    if (isRange) {
+      var b = periodBounds();
+      if (document.activeElement !== $('rFrom')) $('rFrom').value = b.start;
+      if (document.activeElement !== $('rTo')) $('rTo').value = b.end;
     }
-    h += '<p class="line">دخلك <b class="c-inc">' + money(inc) + '</b> ، صرفت <b class="c-exp">' + money(exp) + '</b></p>';
-    if (sav >= 0) {
-      var rate = inc > 0 ? Math.round(sav / inc * 100) : 0;
-      h += '<p class="big">ادخرت <span class="c-sav">' + money(sav) + '</span>' + (inc > 0 ? ' <span style="font-weight:400;font-size:16px;color:var(--muted)">(' + rate + '% من دخلك)</span>' : '') + '</p>';
-    } else {
-      h += '<p class="big">صرفت أكتر من دخلك بـ <span class="c-exp">' + money(-sav) + '</span></p>';
+  }
+
+  function render(){
+    syncUI();
+    var P = calc(); lastP = P;
+    renderHero(P);
+    renderTrio(P);
+    renderCats(P);
+    renderReport(P);
+    renderDaily(P);
+    renderGoal(P);
+    renderList(P);
+  }
+
+  function renderHero(P){
+    if (!P.items.length && !P.opening) {
+      $('hero').innerHTML = '<p class="line">الفترة دي لسه فاضية</p><p class="big" style="font-size:22px">سجّل أول دخل أو مصروف وهتشوف فلوسك بتروح فين.</p>';
+      return;
     }
-    var base = Math.max(inc, exp);
-    var segs = catList.map(function(c){
-      var m = byId[c.id] || byId.other;
-      return '<button type="button" style="flex:' + c.amt + ' 1 0;background:' + m.c + '" data-cap="' + esc(m.i + ' <b>' + m.n + '</b> — ' + money(c.amt) + ' (' + Math.round(c.amt / exp * 100) + '% من مصروفك)') + '" aria-label="' + m.n + ' ' + money(c.amt) + '"></button>';
-    }).join('');
-    if (sav > 0) {
-      segs += '<button type="button" class="sv" style="flex:' + sav + ' 1 0" data-cap="' + esc('💰 <b>المدخرات</b> — ' + money(sav) + ' (' + Math.round(sav / inc * 100) + '% من دخلك)') + '" aria-label="المدخرات ' + money(sav) + '"></button>';
+    var avail = Math.max(0, P.opening) + P.inc;
+    var rem = Math.max(0, avail - P.exp);
+    var h = '<p class="line">الرصيد في آخر الفترة</p>';
+    h += '<p class="big ' + (P.closing >= 0 ? 'c-sav' : 'c-exp') + '">' + money(P.closing) + '</p>';
+    h += '<p class="line eq">' + (P.opening ? 'مرحّل <b>' + money(P.opening) + '</b> + ' : '') +
+         'دخل <span class="c-inc">' + money(P.inc) + '</span> − مصروف <span class="c-exp">' + money(P.exp) + '</span></p>';
+    if (P.exp > 0) {
+      var segs = P.catList.map(function(c){
+        var m = byId[c.id] || byId.other;
+        return '<button type="button" style="flex:' + c.amt + ' 1 0;background:' + m.c + '" data-cap="' + esc(m.i + ' <b>' + m.n + '</b> — ' + money(c.amt) + ' (' + Math.round(c.amt / P.exp * 100) + '% من مصروفك)') + '" aria-label="' + m.n + ' ' + Math.round(c.amt) + '"></button>';
+      }).join('');
+      if (rem > 0) {
+        segs += '<button type="button" class="sv" style="flex:' + rem + ' 1 0" data-cap="' + esc('💰 <b>الرصيد المتبقي</b> — ' + money(rem) + ' (' + Math.round(rem / avail * 100) + '% من المتاح)') + '" aria-label="الرصيد المتبقي"></button>';
+      }
+      h += '<div class="river" id="river">' + segs + '</div>';
+      h += '<p class="cap" id="segcap">الشريط ده هو فلوسك المتاحة (المرحّل + الدخل). اضغط على أي جزء تشوف تفاصيله.</p>';
+      var lg = P.catList.map(function(c){ var m = byId[c.id] || byId.other; return '<span><i style="background:' + m.c + '"></i>' + m.n + '</span>'; }).join('');
+      if (rem > 0) lg += '<span><i style="background:var(--sav)"></i>الرصيد المتبقي</span>';
+      h += '<div class="legend">' + lg + '</div>';
+      if (P.exp > avail) h += '<p class="warn">صرفت أكتر من المتاح بـ ' + money(P.exp - avail) + '.</p>';
     }
-    h += '<div class="river" id="river">' + segs + '</div>';
-    h += '<p class="cap" id="segcap">الشريط ده هو دخلك كله. اضغط على أي جزء تشوف تفاصيله.</p>';
-    var lg = catList.map(function(c){ var m = byId[c.id] || byId.other; return '<span><i style="background:' + m.c + '"></i>' + m.n + '</span>'; }).join('');
-    if (sav > 0) lg += '<span><i style="background:var(--sav)"></i>مدخرات</span>';
-    h += '<div class="legend">' + lg + '</div>';
+    if (P.opening < 0) h += '<p class="warn">فيه رصيد سالب مرحّل من قبل الفترة دي.</p>';
     $('hero').innerHTML = h;
   }
 
-  function renderTrio(inc, exp, sav, elapsed, biggest){
-    if (!inc && !exp) { $('trio').innerHTML = ''; return; }
-    var avg = exp / Math.max(1, elapsed);
-    var rate = inc > 0 ? Math.round(sav / inc * 100) + '%' : '—';
-    var big = biggest ? money(biggest.amount) : '—';
+  function renderTrio(P){
+    if (!P.items.length) { $('trio').innerHTML = ''; return; }
+    var net = P.inc - P.exp;
     $('trio').innerHTML =
-      '<div class="stat"><small>متوسط صرفك في اليوم</small><strong>' + money(avg) + '</strong></div>' +
-      '<div class="stat"><small>أكبر مصروف</small><strong>' + big + '</strong></div>' +
-      '<div class="stat"><small>نسبة الادخار</small><strong class="' + (sav >= 0 ? 'c-sav' : 'c-exp') + '">' + rate + '</strong></div>';
+      '<div class="stat"><small>متوسط صرفك في اليوم</small><strong>' + money(P.exp / P.elapsed) + '</strong></div>' +
+      '<div class="stat"><small>أكبر مصروف</small><strong>' + (P.biggest ? money(P.biggest.amount) : '—') + '</strong></div>' +
+      '<div class="stat"><small>صافي الفترة</small><strong class="' + (net >= 0 ? 'c-inc' : 'c-exp') + '">' + money(net) + '</strong></div>';
   }
 
-  function renderCats(catList, exp){
-    if (!catList.length) { $('cats').innerHTML = '<div class="empty">مفيش مصروفات في الشهر ده لسه.</div>'; return; }
-    $('cats').innerHTML = catList.map(function(c){
+  function renderCats(P){
+    if (!P.catList.length) { $('cats').innerHTML = '<div class="empty">مفيش مصروفات في الفترة دي لسه.</div>'; return; }
+    $('cats').innerHTML = P.catList.map(function(c){
       var m = byId[c.id] || byId.other;
-      var pc = Math.round(c.amt / exp * 100);
+      var pc = Math.round(c.amt / P.exp * 100);
       return '<div class="crow">' +
         '<div class="ic" style="background:' + m.c + '22">' + m.i + '</div>' +
         '<div class="nm">' + m.n + '<small>' + pc + '%</small></div>' +
@@ -382,93 +487,244 @@ input.amount{font-family:"Readex Pro",sans-serif;font-size:20px;font-weight:600}
     }).join('');
   }
 
-  function renderDaily(days, dim, isCur){
-    var W = 320, H = 110, pad2 = 6, bw = (W - pad2 * 2) / dim;
-    var max = 0;
-    for (var k in days) if (days[k] > max) max = days[k];
-    if (!max) { $('daily').innerHTML = '<div class="empty">هيظهر هنا صرفك لكل يوم أول ما تسجّل مصروف.</div>'; $('dcap').style.display = 'none'; return; }
-    $('dcap').style.display = '';
-    var s = '<svg class="chart" viewBox="0 0 ' + W + ' ' + (H + 16) + '" role="img" aria-label="رسم بياني لمصروف كل يوم">';
-    for (var d = 1; d <= dim; d++) {
-      var v = days[d] || 0;
-      var x = W - pad2 - d * bw + 1;
-      var hh = v ? Math.max(3, v / max * H) : 0;
-      var isToday = isCur && d === now.getDate();
-      var fill = isToday ? 'var(--sav)' : 'var(--exp)';
-      s += '<rect x="' + x + '" y="0" width="' + (bw - 2) + '" height="' + H + '" fill="transparent" class="b" data-d="' + d + '" data-v="' + v + '"></rect>';
-      if (v) s += '<rect x="' + x + '" y="' + (H - hh) + '" width="' + (bw - 2) + '" height="' + hh + '" rx="2" fill="' + fill + '" pointer-events="none"></rect>';
-      else s += '<rect x="' + x + '" y="' + (H - 2) + '" width="' + (bw - 2) + '" height="2" rx="1" fill="var(--line)" pointer-events="none"></rect>';
-      if (d === 1 || d % 5 === 0) s += '<text x="' + (x + (bw - 2) / 2) + '" y="' + (H + 12) + '" text-anchor="middle">' + d + '</text>';
-    }
-    s += '</svg>';
-    $('daily').innerHTML = s;
-    $('dcap').innerHTML = 'اضغط على أي عمود تشوف صرف اليوم ده.' + (isCur ? ' <span style="color:var(--sav)">■</span> النهاردة' : '');
+  function monLabel(mo, short){
+    return short ? String(mo.m + 1) : MONTHS[mo.m];
   }
 
-  function renderGoal(inc, exp, sav, dim, isCur){
+  function renderReport(P){
+    var n = P.months.length;
+    $('repSec').hidden = n < 2;
+    if (n < 2) return;
+    var short = n > 6;
+    var W = 320, pd = 6, gw = (W - 2 * pd) / n;
+
+    /* income vs expense bars */
+    var H = 90, max = 0;
+    P.months.forEach(function(mo){ max = Math.max(max, mo.inc, mo.exp); });
+    if (!max) max = 1;
+    var bw = Math.min(14, (gw - 4) / 2);
+    var s = '<svg class="chart" viewBox="0 0 ' + W + ' ' + (H + 16) + '" role="img" aria-label="الدخل والمصروف شهر بشهر">';
+    s += '<line x1="0" y1="' + H + '" x2="' + W + '" y2="' + H + '" stroke="var(--line)" stroke-width="1"/>';
+    P.months.forEach(function(mo, i){
+      var gx = W - pd - (i + 1) * gw, cx = gx + gw / 2;
+      var hi = mo.inc ? Math.max(2, mo.inc / max * H) : 0;
+      var he = mo.exp ? Math.max(2, mo.exp / max * H) : 0;
+      if (hi) s += '<rect x="' + (cx + 1) + '" y="' + (H - hi) + '" width="' + bw + '" height="' + hi + '" rx="2" fill="var(--inc)" pointer-events="none"/>';
+      if (he) s += '<rect x="' + (cx - 1 - bw) + '" y="' + (H - he) + '" width="' + bw + '" height="' + he + '" rx="2" fill="var(--exp)" pointer-events="none"/>';
+      s += '<text x="' + cx + '" y="' + (H + 12) + '" text-anchor="middle">' + monLabel(mo, short) + '</text>';
+      s += '<rect class="b" x="' + gx + '" y="0" width="' + gw + '" height="' + (H + 16) + '" fill="transparent" data-mi="' + i + '"/>';
+    });
+    s += '</svg>';
+    $('mbars').innerHTML = s;
+
+    /* running balance line */
+    var H2 = 80, vals = [P.opening];
+    P.months.forEach(function(mo){ vals.push(mo.close); });
+    var lo = Math.min.apply(null, vals.concat([0])), hi2 = Math.max.apply(null, vals.concat([0]));
+    if (hi2 === lo) hi2 = lo + 1;
+    function yv(v){ return 6 + (H2 - 12) * (1 - (v - lo) / (hi2 - lo)); }
+    var pts = [{ x: W - pd, v: P.opening }];
+    P.months.forEach(function(mo, i){ pts.push({ x: W - pd - (i + 1) * gw + gw / 2, v: mo.close }); });
+    var line = pts.map(function(p, i){ return (i ? 'L' : 'M') + p.x.toFixed(1) + ' ' + yv(p.v).toFixed(1); }).join(' ');
+    var y0 = yv(0);
+    var s2 = '<svg class="chart" viewBox="0 0 ' + W + ' ' + (H2 + 16) + '" role="img" aria-label="الرصيد على مدار الفترة">';
+    s2 += '<line x1="0" y1="' + y0 + '" x2="' + W + '" y2="' + y0 + '" stroke="var(--line)" stroke-width="1" stroke-dasharray="3 3"/>';
+    s2 += '<path d="' + line + '" fill="none" stroke="var(--sav)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>';
+    pts.forEach(function(p, i){
+      s2 += '<circle cx="' + p.x + '" cy="' + yv(p.v) + '" r="' + (i ? 3.2 : 2.4) + '" fill="' + (p.v >= 0 ? 'var(--sav)' : 'var(--exp)') + '" pointer-events="none"/>';
+    });
+    P.months.forEach(function(mo, i){
+      var gx = W - pd - (i + 1) * gw;
+      s2 += '<text x="' + (gx + gw / 2) + '" y="' + (H2 + 12) + '" text-anchor="middle">' + monLabel(mo, short) + '</text>';
+      s2 += '<rect class="b" x="' + gx + '" y="0" width="' + gw + '" height="' + (H2 + 16) + '" fill="transparent" data-mi="' + i + '"/>';
+    });
+    s2 += '</svg>';
+    $('mline').innerHTML = s2;
+    $('mcap').innerHTML = short ? 'الأرقام تحت الأعمدة هي رقم الشهر. اضغط على أي شهر تشوف تفاصيله.' : 'اضغط على أي شهر تشوف تفاصيله.';
+
+    /* month rows (newest first) */
+    $('mrows').innerHTML = P.months.filter(function(mo){ return mo.inc || mo.exp; }).reverse().map(function(mo){
+      return '<div class="mrow"><div class="mn">' + MONTHS[mo.m] + ' ' + mo.y + '</div>' +
+        '<div class="mb ' + (mo.close >= 0 ? '' : 'c-exp') + '">' + money(mo.close) + '</div>' +
+        '<div class="ms"><span>دخل <b class="c-inc">' + money(mo.inc) + '</b></span><span>مصروف <b class="c-exp">' + money(mo.exp) + '</b></span><span>صافي <b>' + money(mo.net) + '</b></span></div></div>';
+    }).join('');
+
+    /* insights */
+    var td = todayStr().slice(0, 7);
+    var first = -1;
+    P.months.forEach(function(mo, i){ if (first < 0 && (mo.inc || mo.exp)) first = i; });
+    var active = P.months.filter(function(mo, i){ return i >= first && mo.key <= td; });
+    if (first < 0 || !active.length) active = P.months;
+    var totalExp = 0; active.forEach(function(mo){ totalExp += mo.exp; });
+    var hiExp = active[0], bestNet = active[0];
+    active.forEach(function(mo){ if (mo.exp > hiExp.exp) hiExp = mo; if (mo.net > bestNet.net) bestNet = mo; });
+    $('insights').innerHTML =
+      '<div class="stat"><small>متوسط الصرف الشهري</small><strong>' + money(totalExp / active.length) + '</strong></div>' +
+      '<div class="stat"><small>أكتر شهر صرفًا</small><strong>' + (hiExp.exp ? MONTHS[hiExp.m] : '—') + '</strong></div>' +
+      '<div class="stat"><small>أحسن شهر ادخارًا</small><strong>' + (bestNet.net > 0 ? MONTHS[bestNet.m] : '—') + '</strong></div>';
+  }
+
+  function renderDaily(P){
+    var sec = $('dailySec');
+    var n = P.nDays;
+    if (n > 45 || !P.exp) { sec.hidden = true; return; }
+    sec.hidden = false;
+    var W = 320, H = 110, pd = 6, bw = (W - pd * 2) / n, max = 0, arr = [];
+    for (var i = 0; i < n; i++) { var ds = addDays(P.start, i); var v = P.days[ds] || 0; arr.push({ d: ds, v: v }); if (v > max) max = v; }
+    var k = n <= 10 ? 1 : n <= 20 ? 2 : 5;
+    var td = todayStr();
+    var s = '<svg class="chart" viewBox="0 0 ' + W + ' ' + (H + 16) + '" role="img" aria-label="رسم بياني لمصروف كل يوم">';
+    arr.forEach(function(o, i){
+      var x = W - pd - (i + 1) * bw + 1;
+      var hh = o.v ? Math.max(3, o.v / max * H) : 0;
+      var fill = o.d === td ? 'var(--sav)' : 'var(--exp)';
+      s += '<rect class="b" x="' + x + '" y="0" width="' + (bw - 2) + '" height="' + H + '" fill="transparent" data-d="' + o.d + '" data-v="' + o.v + '"></rect>';
+      if (o.v) s += '<rect x="' + x + '" y="' + (H - hh) + '" width="' + (bw - 2) + '" height="' + hh + '" rx="2" fill="' + fill + '" pointer-events="none"></rect>';
+      else s += '<rect x="' + x + '" y="' + (H - 2) + '" width="' + (bw - 2) + '" height="2" rx="1" fill="var(--line)" pointer-events="none"></rect>';
+      if (i === 0 || (n > 10 && (i + 1) % k === 0) || (n <= 10)) s += '<text x="' + (x + (bw - 2) / 2) + '" y="' + (H + 12) + '" text-anchor="middle">' + (+o.d.slice(8, 10)) + '</text>';
+    });
+    s += '</svg>';
+    $('daily').innerHTML = s;
+    $('dcap').innerHTML = 'اضغط على أي عمود تشوف صرف اليوم ده.' + (td >= P.start && td <= P.end ? ' <span style="color:var(--sav)">■</span> النهاردة' : '');
+  }
+
+  function renderGoal(P){
     var g = state.goal;
     if (document.activeElement !== $('goal')) $('goal').value = g ? g : '';
     if (!g) { $('goalOut').innerHTML = '<p class="hint" style="margin-top:10px">اكتب رقم وأنا أحسبلك وصلت لفين.</p>'; return; }
-    var cur = Math.max(0, sav);
+    var cur = Math.max(0, P.closing);
     var pc = Math.min(100, Math.round(cur / g * 100));
     var h = '<div class="pbar" role="progressbar" aria-valuenow="' + pc + '" aria-valuemin="0" aria-valuemax="100"><i style="width:' + pc + '%"></i></div>';
-    if (sav >= g) h += '<p class="hint"><b class="c-sav">حققت هدفك 🎉</b> وزيادة ' + money(sav - g) + '.</p>';
+    if (P.closing >= g) h += '<p class="hint"><b class="c-sav">وصلت لهدفك 🎉</b> وزيادة ' + money(P.closing - g) + '.</p>';
     else h += '<p class="hint">وصلت <b>' + pc + '%</b> — فاضل <b>' + money(g - cur) + '</b> على هدفك.</p>';
-    if (isCur && inc > 0) {
-      var remDays = dim - now.getDate() + 1;
-      var allowed = inc - g - exp;
-      if (allowed > 0) h += '<p class="hint">عشان توصل لهدفك، تقدر تصرف <b>' + money(allowed / remDays) + '</b> في اليوم لباقي الشهر.</p>';
-      else if (sav < g) h += '<p class="hint" style="color:var(--exp)">صرفك لحد دلوقتي بيخليك تفوّت الهدف ده على دخل الشهر الحالي.</p>';
+    var td = todayStr();
+    if (td >= P.start && td <= P.end && P.closing > g) {
+      var rd = daysBetween(td, P.end) + 1;
+      h += '<p class="hint">تقدر تصرف <b>' + money((P.closing - g) / rd) + '</b> في اليوم لباقي الفترة وتفضل محافظ على هدفك.</p>';
     }
     $('goalOut').innerHTML = h;
   }
 
-  function renderList(items){
-    var arr = items.filter(function(it){ return filter === 'all' || it.type === filter; })
+  function renderList(P){
+    var arr = P.items.filter(function(it){ return filter === 'all' || it.type === filter; })
       .sort(function(a, b){ return a.date < b.date ? 1 : a.date > b.date ? -1 : b.id - a.id; });
     if (!arr.length) {
-      $('list').innerHTML = '<div class="empty">' + (items.length ? 'مفيش حركات من النوع ده.' : 'مفيش حركات في الشهر ده.') + '</div>';
+      $('list').innerHTML = '<div class="empty">' + (P.items.length ? 'مفيش حركات من النوع ده.' : 'مفيش حركات في الفترة دي.') + '</div>';
       return;
     }
-    $('list').innerHTML = arr.map(function(it){
+    var withYear = P.start.slice(0, 4) !== P.end.slice(0, 4);
+    var LIMIT = 60, shown = listAll ? arr : arr.slice(0, LIMIT);
+    var h = shown.map(function(it){
       var m = byId[it.cat] || byId.other;
-      var d = +it.date.slice(8, 10);
       var sign = it.type === 'income' ? '+' : '−';
       return '<div class="tx">' +
         '<div class="ic">' + m.i + '</div>' +
-        '<div class="t">' + (it.note ? esc(it.note) : m.n) + '<small>' + m.n + ' · ' + d + ' ' + MONTHS[+it.date.slice(5, 7) - 1] + '</small></div>' +
+        '<div class="t">' + (it.note ? esc(it.note) : m.n) + '<small>' + m.n + ' · ' + (+it.date.slice(8, 10)) + ' ' + MONTHS[+it.date.slice(5, 7) - 1] + (withYear ? ' ' + it.date.slice(0, 4) : '') + '</small></div>' +
         '<div class="a ' + (it.type === 'income' ? 'c-inc' : 'c-exp') + '">' + sign + ' ' + fmt(it.amount) + '</div>' +
         '<button type="button" class="x" data-del="' + it.id + '" aria-label="احذف الحركة">×</button>' +
       '</div>';
     }).join('');
+    if (!listAll && arr.length > LIMIT) h += '<button type="button" class="ghost morebtn" id="moreBtn">عرض كل الحركات (' + arr.length + ')</button>';
+    $('list').innerHTML = h;
   }
+
+  /* delivery: share sheet on phones, download otherwise */
+  function deliver(text, name, mime, title, done){
+    var file = null;
+    try { file = new File([text], name, { type: mime }); } catch (e) {}
+    function dl(){
+      var a = document.createElement('a');
+      a.href = URL.createObjectURL(new Blob([text], { type: mime }));
+      a.download = name; document.body.appendChild(a); a.click();
+      setTimeout(function(){ URL.revokeObjectURL(a.href); a.remove(); }, 1000);
+      done('download');
+    }
+    if (file && navigator.canShare && navigator.canShare({ files: [file] })) {
+      navigator.share({ files: [file], title: title }).then(function(){ done('share'); })
+        .catch(function(err){ if (err && err.name !== 'AbortError') dl(); });
+    } else { dl(); }
+  }
+  function say(id, text, bad){ var m = $(id); m.style.color = bad ? 'var(--exp)' : 'var(--inc)'; m.textContent = text; setTimeout(function(){ m.textContent = ''; }, 4000); }
+  function stamp(){ var d = new Date(); return d.getFullYear() + pad(d.getMonth() + 1) + pad(d.getDate()); }
 
   /* events */
   document.addEventListener('click', function(e){
     var t = e.target;
-    var cap = t.closest && t.closest('[data-cap]');
+    if (!t.closest) return;
+    var cap = t.closest('[data-cap]');
     if (cap) {
       var r = $('river');
       if (r) Array.prototype.forEach.call(r.children, function(b){ b.classList.toggle('on', b === cap); });
       $('segcap').innerHTML = cap.getAttribute('data-cap');
       return;
     }
-    var bar = t.closest && t.closest('rect[data-d]');
-    if (bar) {
-      var v = +bar.getAttribute('data-v'), d = bar.getAttribute('data-d');
-      $('dcap').innerHTML = v ? 'يوم <b>' + d + '</b>: صرفت <b class="c-exp">' + money(v) + '</b>' : 'يوم <b>' + d + '</b>: مصرفتش حاجة 👌';
+    var mi = t.closest('[data-mi]');
+    if (mi && lastP) {
+      var mo = lastP.months[+mi.getAttribute('data-mi')];
+      if (mo) $('mcap').innerHTML = '<b>' + MONTHS[mo.m] + ' ' + mo.y + '</b>: دخل <b class="c-inc">' + money(mo.inc) + '</b> ، مصروف <b class="c-exp">' + money(mo.exp) + '</b> ، الرصيد <b class="c-sav">' + money(mo.close) + '</b>';
       return;
     }
-    var del = t.closest && t.closest('[data-del]');
+    var bar = t.closest('rect[data-d]');
+    if (bar) {
+      var v = +bar.getAttribute('data-v'), d = bar.getAttribute('data-d');
+      var lab = (+d.slice(8, 10)) + ' ' + MONTHS[+d.slice(5, 7) - 1];
+      $('dcap').innerHTML = v ? '<b>' + lab + '</b>: صرفت <b class="c-exp">' + money(v) + '</b>' : '<b>' + lab + '</b>: مصرفتش حاجة 👌';
+      return;
+    }
+    var del = t.closest('[data-del]');
     if (del) {
       var id = +del.getAttribute('data-del');
       state.items = state.items.filter(function(it){ return it.id !== id; });
       save(); render(); return;
     }
+    if (t.closest('#moreBtn')) { listAll = true; render(); return; }
   });
 
-  $('prev').addEventListener('click', function(){ view.m--; if (view.m < 0) { view.m = 11; view.y--; } render(); });
-  $('next').addEventListener('click', function(){ view.m++; if (view.m > 11) { view.m = 0; view.y++; } render(); });
+  function step(dir){
+    listAll = false;
+    if (view.mode === 'month') { view.m += dir; if (view.m < 0) { view.m = 11; view.y--; } if (view.m > 11) { view.m = 0; view.y++; } }
+    else if (view.mode === 'year') { view.y += dir; }
+    render();
+  }
+  $('prev').addEventListener('click', function(){ step(-1); });
+  $('next').addEventListener('click', function(){ step(1); });
+
+  $('modes').addEventListener('click', function(e){
+    var b = e.target.closest('button'); if (!b) return;
+    var mode = b.getAttribute('data-mode');
+    if (mode === view.mode) return;
+    var pb = periodBounds(), td = todayStr();
+    var anchor = (td >= pb.start && td <= pb.end) ? td : pb.start;
+    if (mode === 'range') { view.from = pb.start; view.to = pb.end; }
+    else { view.y = +anchor.slice(0, 4); view.m = +anchor.slice(5, 7) - 1; }
+    view.mode = mode; listAll = false;
+    render();
+  });
+
+  function onRange(){
+    var f = $('rFrom').value, t = $('rTo').value;
+    if (isDate(f)) view.from = f;
+    if (isDate(t)) view.to = t;
+    listAll = false; render();
+  }
+  $('rFrom').addEventListener('change', onRange);
+  $('rTo').addEventListener('change', onRange);
+
+  $('chips').addEventListener('click', function(e){
+    var b = e.target.closest('button'); if (!b) return;
+    var c = b.getAttribute('data-chip'), td = todayStr(), y = now.getFullYear(), m = now.getMonth();
+    function firstOf(yy, mm){ while (mm < 0) { mm += 12; yy--; } return yy + '-' + pad(mm + 1) + '-01'; }
+    if (c === '30d') { view.from = addDays(td, -29); view.to = td; }
+    else if (c === '3m') { view.from = firstOf(y, m - 2); view.to = td; }
+    else if (c === '6m') { view.from = firstOf(y, m - 5); view.to = td; }
+    else if (c === 'ytd') { view.from = y + '-01-01'; view.to = td; }
+    else {
+      var mn = td, mx = td;
+      state.items.forEach(function(it){ if (it.date < mn) mn = it.date; if (it.date > mx) mx = it.date; });
+      view.from = mn; view.to = mx;
+    }
+    listAll = false; render();
+  });
 
   $('seg').addEventListener('click', function(e){
     var b = e.target.closest('button'); if (!b) return;
@@ -480,22 +736,29 @@ input.amount{font-family:"Readex Pro",sans-serif;font-size:20px;font-weight:600}
 
   $('filters').addEventListener('click', function(e){
     var b = e.target.closest('button'); if (!b) return;
-    filter = b.getAttribute('data-f');
+    filter = b.getAttribute('data-f'); listAll = false;
     Array.prototype.forEach.call($('filters').children, function(x){ x.classList.toggle('on', x === b); });
     render();
   });
 
+  function ensureVisible(date){
+    var b = periodBounds();
+    if (date >= b.start && date <= b.end) return;
+    if (view.mode === 'month') { view.y = +date.slice(0, 4); view.m = +date.slice(5, 7) - 1; }
+    else if (view.mode === 'year') { view.y = +date.slice(0, 4); }
+    else { view.from = b.start < date ? b.start : date; view.to = b.end > date ? b.end : date; }
+  }
+
   $('form').addEventListener('submit', function(e){
     e.preventDefault();
     var amt = parseFloat($('amount').value);
-    if (!(amt > 0)) { $('ok').style.color = 'var(--exp)'; $('ok').textContent = 'اكتب مبلغ أكبر من صفر.'; return; }
+    if (!(amt > 0)) { say('ok', 'اكتب مبلغ أكبر من صفر.', true); return; }
     var date = $('date').value || todayStr();
     state.items.push({ id: Date.now() + Math.floor(Math.random() * 1000), type: type, amount: amt, cat: $('cat').value, note: $('note').value.trim(), date: date });
-    view.y = +date.slice(0, 4); view.m = +date.slice(5, 7) - 1;
+    ensureVisible(date);
     save();
     $('amount').value = ''; $('note').value = '';
-    $('ok').style.color = 'var(--inc)'; $('ok').textContent = 'اتسجّل ✓';
-    setTimeout(function(){ $('ok').textContent = ''; }, 2000);
+    say('ok', 'اتسجّل ✓');
     render();
   });
 
@@ -504,24 +767,90 @@ input.amount{font-family:"Readex Pro",sans-serif;font-size:20px;font-weight:600}
     save(); render();
   });
 
-  $('demo').addEventListener('click', function(){
-    var p = ym(), n = Date.now(), dim = new Date(view.y, view.m + 1, 0).getDate();
-    var isCur = view.y === now.getFullYear() && view.m === now.getMonth();
-    var last = isCur ? now.getDate() : dim;
-    var sample = [
-      ['income','salary',12000,1,'مرتب الشهر'],['income','free',2500,Math.min(10, last),'شغل جانبي'],
-      ['expense','home',3500,Math.min(2, last),'إيجار'],['expense','home',650,Math.min(5, last),'كهربا وإنترنت'],
-      ['expense','food',180,1,'فطار وغدا'],['expense','food',420,Math.min(3, last),'سوبر ماركت'],
-      ['expense','food',95,Math.min(4, last),'قهوة'],['expense','food',600,Math.min(8, last),'عزومة'],
-      ['expense','transport',300,Math.min(2, last),'بنزين'],['expense','transport',120,Math.min(6, last),'أوبر'],
-      ['expense','health',250,Math.min(7, last),'صيدلية'],['expense','fun',350,Math.min(9, last),'سينما وخروجة'],
-      ['expense','shop',900,Math.min(12, last),'هدوم'],['expense','edu',400,Math.min(3, last),'كورس أونلاين'],
-      ['expense','other',150,Math.min(11, last),'']
-    ];
-    sample.forEach(function(s, i){
-      state.items.push({ id: n + i, type: s[0], cat: s[1], amount: s[2], date: p + '-' + pad(Math.max(1, s[3])), note: s[4] });
+  /* CSV export of the visible period */
+  $('csv').addEventListener('click', function(){
+    if (!lastP || !lastP.items.length) { say('csvmsg', 'مفيش حركات في الفترة دي تتصدّر.', true); return; }
+    function cell(v){
+      var s = String(v);
+      if (/^[=+\-@\t\r]/.test(s)) s = "'" + s;
+      return '"' + s.replace(/"/g, '""') + '"';
+    }
+    var rows = [['التاريخ', 'النوع', 'التصنيف', 'المبلغ', 'ملاحظة']];
+    lastP.items.slice().sort(function(a, b){ return a.date < b.date ? -1 : a.date > b.date ? 1 : a.id - b.id; }).forEach(function(it){
+      rows.push([it.date, it.type === 'income' ? 'دخل' : 'مصروف', (byId[it.cat] || byId.other).n, it.amount, it.note || '']);
     });
-    if (!state.goal) state.goal = 3000;
+    var text = '\uFEFF' + rows.map(function(r){ return r.map(cell).join(','); }).join('\r\n');
+    deliver(text, 'masrofaty-' + lastP.start + '_' + lastP.end + '.csv', 'text/csv', 'حركات الفترة - دفتر مصروفاتي', function(how){
+      say('csvmsg', how === 'share' ? 'تمام ✓' : 'اتحفظ الملف ✓');
+    });
+  });
+
+  /* backup / restore */
+  function showLast(){
+    var t = null; try { t = localStorage.getItem(KEY + '-lastbk'); } catch (e) {}
+    $('lastbk').textContent = t ? 'آخر نسخة احتياطية: ' + t : 'لسه ماخدتش نسخة احتياطية.';
+  }
+  $('backup').addEventListener('click', function(){
+    var json = JSON.stringify({ app: 'masrofaty', version: 1, exportedAt: new Date().toISOString(), items: state.items, goal: state.goal }, null, 2);
+    var name = 'masrofaty-backup-' + stamp() + '.json';
+    deliver(json, name, 'application/json', 'نسخة احتياطية - دفتر مصروفاتي', function(how){
+      try { localStorage.setItem(KEY + '-lastbk', new Date().toLocaleDateString('en-GB')); } catch (e) {}
+      showLast();
+      say('bkmsg', how === 'share' ? 'تمام، النسخة اتحفظت ✓' : 'اتحفظ الملف: ' + name);
+    });
+  });
+  $('restoreBtn').addEventListener('click', function(){ $('restoreFile').click(); });
+  $('restoreFile').addEventListener('change', function(){
+    var f = $('restoreFile').files[0]; if (!f) return;
+    var r = new FileReader();
+    r.onload = function(){
+      try {
+        var p = JSON.parse(r.result);
+        if (!p || p.app !== 'masrofaty' || !Array.isArray(p.items)) throw new Error('bad');
+        var clean = p.items.filter(function(it){
+          return it && (it.type === 'income' || it.type === 'expense') && +it.amount > 0 && isDate(it.date);
+        }).map(function(it){ return { id: +it.id || Date.now() + Math.floor(Math.random() * 100000), type: it.type, amount: +it.amount, cat: String(it.cat || 'other'), note: String(it.note || '').slice(0, 60), date: it.date }; });
+        var have = {}; state.items.forEach(function(it){ have[it.id] = 1; });
+        var added = 0;
+        clean.forEach(function(it){ if (!have[it.id]) { state.items.push(it); added++; } });
+        if (!state.goal && +p.goal > 0) state.goal = +p.goal;
+        save(); render();
+        say('bkmsg', 'اترجّع ' + added + ' حركة ✓');
+      } catch (e) { say('bkmsg', 'الملف ده مش نسخة احتياطية صحيحة.', true); }
+      $('restoreFile').value = '';
+    };
+    r.readAsText(f);
+  });
+
+  /* demo data: 3 months so carry-over and the report have something to show */
+  $('demo').addEventListener('click', function(){
+    var pb = periodBounds(), tdd = todayStr();
+    var anchor = (tdd >= pb.start && tdd <= pb.end) ? tdd : pb.start;
+    var sy = +anchor.slice(0, 4), sm = +anchor.slice(5, 7) - 1;
+    var n = Date.now(), c = 0;
+    var factors = [0.9, 1.1, 1.0];
+    for (var k = 0; k < 3; k++) {
+      var y = sy, m = sm - (2 - k); while (m < 0) { m += 12; y--; }
+      var isCur = y === now.getFullYear() && m === now.getMonth();
+      var cap = isCur ? now.getDate() : 28, f = factors[k];
+      var P = y + '-' + pad(m + 1) + '-';
+      var sample = [
+        ['income','salary',12000,1,'مرتب الشهر'],['income','free',k === 1 ? 4000 : 2000,10,'شغل جانبي'],
+        ['expense','home',3500,2,'إيجار'],['expense','home',650,5,'كهربا وإنترنت'],
+        ['expense','food',180,1,'فطار وغدا'],['expense','food',420,3,'سوبر ماركت'],
+        ['expense','food',95,4,'قهوة'],['expense','food',600,8,'عزومة'],
+        ['expense','transport',300,2,'بنزين'],['expense','transport',120,6,'أوبر'],
+        ['expense','health',250,7,'صيدلية'],['expense','fun',350,9,'سينما وخروجة'],
+        ['expense','shop',900,12,'هدوم'],['expense','edu',400,3,'كورس أونلاين'],
+        ['expense','other',150,11,'']
+      ];
+      sample.forEach(function(s){
+        var d = Math.max(1, Math.min(s[3], cap));
+        var amt = s[0] === 'expense' ? Math.round(s[2] * f) : s[2];
+        state.items.push({ id: n + (c++), type: s[0], cat: s[1], amount: amt, date: P + pad(d), note: s[4] });
+      });
+    }
+    if (!state.goal) state.goal = 20000;
     save(); render();
   });
 
@@ -535,56 +864,6 @@ input.amount{font-family:"Readex Pro",sans-serif;font-size:20px;font-weight:600}
     }
     b.setAttribute('data-arm', '1'); b.textContent = 'اضغط تاني للتأكيد';
     wipeTimer = setTimeout(function(){ b.removeAttribute('data-arm'); b.textContent = 'امسح كل البيانات'; }, 3000);
-  });
-
-  function stamp(){ var d = new Date(); return d.getFullYear() + pad(d.getMonth() + 1) + pad(d.getDate()); }
-  function showLast(){
-    var t = null; try { t = localStorage.getItem(KEY + '-lastbk'); } catch (e) {}
-    $('lastbk').textContent = t ? 'آخر نسخة احتياطية: ' + t : 'لسه ماخدتش نسخة احتياطية.';
-  }
-  function msg(text, bad){ var m = $('bkmsg'); m.style.color = bad ? 'var(--exp)' : 'var(--inc)'; m.textContent = text; setTimeout(function(){ m.textContent = ''; }, 4000); }
-
-  $('backup').addEventListener('click', function(){
-    var json = JSON.stringify({ app: 'masrofaty', version: 1, exportedAt: new Date().toISOString(), items: state.items, goal: state.goal }, null, 2);
-    var name = 'masrofaty-backup-' + stamp() + '.json';
-    var file;
-    try { file = new File([json], name, { type: 'application/json' }); } catch (e) { file = null; }
-    function mark(){ try { localStorage.setItem(KEY + '-lastbk', new Date().toLocaleDateString('en-GB')); } catch (e) {} showLast(); }
-    function download(){
-      var a = document.createElement('a');
-      a.href = URL.createObjectURL(new Blob([json], { type: 'application/json' }));
-      a.download = name; document.body.appendChild(a); a.click();
-      setTimeout(function(){ URL.revokeObjectURL(a.href); a.remove(); }, 1000);
-      mark(); msg('اتحفظ الملف: ' + name);
-    }
-    if (file && navigator.canShare && navigator.canShare({ files: [file] })) {
-      navigator.share({ files: [file], title: 'نسخة احتياطية - دفتر مصروفاتي' })
-        .then(function(){ mark(); msg('تمام، النسخة اتحفظت ✓'); })
-        .catch(function(err){ if (err && err.name !== 'AbortError') download(); });
-    } else { download(); }
-  });
-
-  $('restoreBtn').addEventListener('click', function(){ $('restoreFile').click(); });
-  $('restoreFile').addEventListener('change', function(){
-    var f = $('restoreFile').files[0]; if (!f) return;
-    var r = new FileReader();
-    r.onload = function(){
-      try {
-        var p = JSON.parse(r.result);
-        if (!p || p.app !== 'masrofaty' || !Array.isArray(p.items)) throw new Error('bad');
-        var clean = p.items.filter(function(it){
-          return it && (it.type === 'income' || it.type === 'expense') && +it.amount > 0 && typeof it.date === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(it.date);
-        }).map(function(it){ return { id: +it.id || Date.now() + Math.floor(Math.random() * 100000), type: it.type, amount: +it.amount, cat: String(it.cat || 'other'), note: String(it.note || '').slice(0, 60), date: it.date }; });
-        var have = {}; state.items.forEach(function(it){ have[it.id] = 1; });
-        var added = 0;
-        clean.forEach(function(it){ if (!have[it.id]) { state.items.push(it); added++; } });
-        if (!state.goal && +p.goal > 0) state.goal = +p.goal;
-        save(); render();
-        msg('اترجّع ' + added + ' حركة ✓');
-      } catch (e) { msg('الملف ده مش نسخة احتياطية صحيحة.', true); }
-      $('restoreFile').value = '';
-    };
-    r.readAsText(f);
   });
 
   try { if (navigator.storage && navigator.storage.persist) navigator.storage.persist(); } catch (e) {}
